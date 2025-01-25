@@ -2,15 +2,21 @@ import streamlit as st
 import pandas as pd
 from graph_plots import line_plot_with_csv, line_plot_with_input, scatter_plot, bar_plot_with_csv,bar_plot_with_input
 import numpy as np
+import re
 
 state = st.session_state
 
 def csv_file(graph_type):
-    state.csv_content = st.file_uploader(label="Upload the csv file",type=["csv"],accept_multiple_files=False)
+    state.csv_content = st.file_uploader(label="Upload the data file",type=["csv","xlsx"],accept_multiple_files=False,help="Upload either csv file or xlsx(excel) file")
         
     if state.csv_content:
-        try: 
-            state.file_data = pd.read_csv(st.session_state.csv_content)
+        try:
+            extension = re.findall(pattern=r".xlsx|.csv",string=str(state.csv_content))[0] # To extract the format extension
+            if extension == ".xlsx":
+                state.file_data = pd.read_excel(state.csv_content)
+            elif extension == ".csv":
+                state.file_data = pd.read_csv(state.csv_content)
+            
             col1,col2,col3,col4 = st.columns(4) # Has to keep it here.,
                     
             with col1:
