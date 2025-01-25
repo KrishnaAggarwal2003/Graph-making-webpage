@@ -20,9 +20,9 @@ def data_file(graph_type):
             col1,col2,col3,col4 = st.columns(4) # Has to keep it here.,
                     
             with col1:
-              state.x_label = st.text_input(label="Name for X-axis:", help="For csv file, add the column name you want for the x-axis")
+              state.x_label = st.text_input(label="Name for X-axis:", help="For data file, add the column name you want for the x-axis")
             with col2:
-              state.y_label = st.text_input(label="Name for Y-axis:",help="For csv file, add the column name you want for the y-axis")
+              state.y_label = st.text_input(label="Name for Y-axis:",help="For data file, add the column name you want for the y-axis")
             with col3:
               state.title = st.text_input(label="Title for the plot:")
             with col4:
