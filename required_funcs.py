@@ -6,7 +6,7 @@ import re
 
 state = st.session_state
 
-def csv_file(graph_type):
+def data_file(graph_type):
     state.csv_content = st.file_uploader(label="Upload the data file",type=["csv","xlsx"],accept_multiple_files=False,help="Upload either csv file or xlsx(excel) file")
         
     if state.csv_content:
