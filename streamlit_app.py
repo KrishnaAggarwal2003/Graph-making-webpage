@@ -5,7 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from required_funcs import csv_file,input_data
 
-st.set_page_config(page_title="Graph-plotting Tool", page_icon="📊") # The first code line
+st.set_page_config(page_title="Graph-plotting Tool", page_icon="📊", menu_items={
+        "Get Help": None,
+        "Report a Bug": None,
+        "About": None
+    }) # The first code line
 
 st.markdown('<h1 style="text-align: center;">EasyGraph Plot</h1>', unsafe_allow_html=True)
 
