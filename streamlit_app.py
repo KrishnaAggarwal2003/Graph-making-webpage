@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 import matplotlib.pyplot as plt
-from required_funcs import csv_file,input_data
+from required_funcs import data_file,input_data
 
 st.set_page_config(page_title="Graph-plotting Tool", page_icon="📊", menu_items={
         "Get Help": None,
@@ -28,17 +28,17 @@ state.label = "" if "label" not in state else state.label
 # Deploying graphs
 if state.graph_type:
   if state.graph_type.lower() == "line plot":
-    state.choice = st.selectbox(label="How will you upload the data?", options=["Csv file","Input the data"], index=None)
+    state.choice = st.selectbox(label="How will you upload the data?", options=["Data file","Input the data"], index=None)
     
-    if state.choice == "Csv file":
-      csv_file(graph_type=state.graph_type.lower())  
+    if state.choice == "Data file":
+      data_file(graph_type=state.graph_type.lower())  
             
     elif state.choice == "Input the data":
       input_data(graph_type=state.graph_type.lower())
 
 
   if state.graph_type.lower() == "scatter plot":
-    csv_file(graph_type=state.graph_type.lower())
+    data_file(graph_type=state.graph_type.lower())
   
   if state.graph_type.lower() == "Bar plot".lower():
     state.choice = st.selectbox(label="How will you upload the data?", options=["Csv file","Input the data"], index=None)
@@ -47,7 +47,7 @@ if state.graph_type:
       input_data(graph_type=state.graph_type.lower())
   
     elif state.choice == "Csv file":
-      csv_file(graph_type=state.graph_type.lower())  
+      data_file(graph_type=state.graph_type.lower())  
     
   
                  
